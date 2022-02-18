@@ -1,4 +1,4 @@
-import http from "@/utils/axios/http"
+import http from "@/utils/http"
 
 export function getArticleList(params) {
   return http.get('yi-website/public/byCondition', params)
@@ -13,4 +13,7 @@ export function getArticleList2() {
 
 export function login(params) {
   return http.post('account-center/login', params)
+}
+export function getInfo(params) {
+  return http.post('account-center/member/info', params)
 }
