@@ -1,11 +1,17 @@
 <script setup lang="ts">
+  import { useStore } from 'vuex'
+  import { computed } from 'vue';
   import zhCN from 'ant-design-vue/es/locale/zh_CN';
   const locale = zhCN
+  const store = useStore()
+  let spinning = computed(() => store.state.spinning)
 </script>
 
 <template>
   <a-config-provider :locale="locale">
-    <router-view />
+    <a-spin :spinning="spinning">
+      <router-view />
+    </a-spin>    
   </a-config-provider>
   
 </template>
