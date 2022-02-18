@@ -1,16 +1,22 @@
 import request from './request'
 
+interface IResponseData<T> {
+    message?: string;
+    data: T;
+    code: string;
+}
+
 const http ={
-    get(url: string, data?: object, options = { loading: true, toast: true }) {
+    get<T>(url: string, data?: object, options = { loading: true, toast: true }): Promise<IResponseData<T>> {
         return request(options).get(url, { params: data })
     },
-    post(url: string, data?: object, params?: object, options = { loading: true, toast: true }){
+    post<T>(url: string, data?: object, params?: object, options = { loading: true, toast: true }): Promise<IResponseData<T>> {
         return request(options).post(url, data, { params: params })
     },    
-    delete(url: string, data?: object, options = { loading: true, toast: true }) {
+    delete<T>(url: string, data?: object, options = { loading: true, toast: true }): Promise<IResponseData<T>> {
         return request(options).delete(url, { params: data })
     },    
-    put(url: string, data?: object, params?: object, options = { loading: true, toast: true }) {
+    put<T>(url: string, data?: object, params?: object, options = { loading: true, toast: true }): Promise<IResponseData<T>> {
         return request(options).put(url, data, { params: params })
     }
 }
