@@ -20,10 +20,10 @@ const HTTP_STATUS = {
 }
 export const errorPrompt = res => {
     const { status } = res
-    if(status == 401) window.location.href = `${import.meta.env.VITE_APP_JUMPURL as any}/#/login?fromUrl=${encodeURIComponent(window.location.href)}`
-    else if(res.code=='0001'){
-        message.warning(HTTP_STATUS[status]|| res.message)
-    }else {
-        message.error(HTTP_STATUS[status]|| res.message) 
-    } 
+    // if(status == 401) window.location.href = `${import.meta.env.VITE_APP_JUMPURL as any}/#/login?fromUrl=${encodeURIComponent(window.location.href)}`
+    // else if(res.code=='0001'){
+    //     message.warning(HTTP_STATUS[status]|| res.message)
+    // }else {
+    //     message.error(HTTP_STATUS[status]|| res.message) 
+    // } 
 }
