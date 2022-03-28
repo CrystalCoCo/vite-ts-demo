@@ -7,7 +7,7 @@ export function getArticleList1(params) {
   return get('yi-website/public/label/list', params)
 }
 export function getArticleList2() {
-  return get('yi-sharing/home/runningStatusUnauth')
+  return get('yi-sharing/home/runningStatusUnauth', null, false)
 }
 
 

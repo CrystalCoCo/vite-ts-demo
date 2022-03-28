@@ -10,11 +10,11 @@
   const text = ref('哈哈哈')
   const current = ref<number>(1)
   onMounted(async() => {
-    await getArticleList({ flag: 'knowledge', pageSize: 8 })
-    await getArticleList1({ category: 'YI_MARKET' })
+    // await getArticleList({ flag: 'knowledge', pageSize: 8 })
+    // await getArticleList1({ category: 'YI_MARKET' })
     await getArticleList2()
     //await getInfo()
-    await login({ username: 'root', password: 'yqy123321' })
+   // await login({ username: 'root', password: 'yqy123321' })
     console.log(1111111111111111111111)
   })
   const dataSource = [

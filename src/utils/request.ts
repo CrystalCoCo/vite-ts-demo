@@ -15,7 +15,7 @@ const instance = axios.create({
   showLoading: true
 });
 instance.interceptors.request.use(config => {
-  if(config.showLoading) {
+  if(config.showLoading != false) {
     loadingNum ++
     store.commit('loading', true)
   }
@@ -43,8 +43,9 @@ interface IResponseData<T> {
   code: string;
 }
 
-export function get<T>(url: string, data?: object): Promise<IResponseData<T>> {
-  return instance.get(url, { params: data })
+export function get<T>(url: string, data?: object, loading?: boolean): Promise<IResponseData<T>> {
+  let params = loading == false ? { params: data, showLoading: loading } : { params: data }
+  return instance.get(url, params)
 }
 export function post<T>(url: string, data?: object, params?: object): Promise<IResponseData<T>> {
   return instance.post(url, data, { params: params })
